@@ -31,12 +31,12 @@
             <!-- <img src="../images/central_park.jpg" alt="Central Park" width="500"> -->
             
             <ul id="album">
-                <li id="photo"><img src="images/winterland1.jpg"></li>
+                <!-- <li id="photo"><img src="images/winterland1.jpg"></li>
                 <li id="photo"><img src="images/winterland2.jpg"></li>
                 <li id="photo"><img src="images/winterland3.jpg"></li>
                 <li id="photo"><img src="images/winterland4.jpg"></li>
                 <li id="photo"><img src="images/winterland5.jpg"></li>
-                <li id="photo"><img src="images/winterland6.jpg"></li>
+                <li id="photo"><img src="images/winterland6.jpg"></li> -->
             </ul>
            
         </main>
@@ -46,5 +46,25 @@
 
     </div>
     <!-- End Container -->
+
+    <script>
+        var photos = []; //declare an empty array to store image element
+        var fileName = []; //declare an empty element to store image file name
+        var imageList = []; //decalre an empty array to store html list that contain an image
+        var image; //declare an empty variable to store the assembled image list codes
+        var openList = "<li id='photo'>"; //decalre a variable to contain open list tag
+        var closeList = "</li>"; // declare a variable to contain close list tag
+
+        //create a loop to create 6 images starting with index of 0
+        for (var i=0; i<6; i++){
+            fileName.push("winterland"+(i+1)); //create image file name and store in the array
+            photos.push("<img src='images/"+fileName[i]+".jpg'>");// assemble file name into image element and store in an array
+            image = openList+photos[i]+closeList; //assemble image element from array with list elements and store in a variable
+            imageList.push(image); //store (push) the assembled list codes into an array
+        }
+
+        //display all six image codes stored in the array
+        document.getElementById("album").innerHTML=imageList;
+    </script>
 </body>
 </html>
